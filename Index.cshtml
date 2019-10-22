@@ -1,0 +1,58 @@
+﻿@page
+@model WeekendHW.Pages.myAssociation.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<section>
+    <label asp-for=" OpenCount"></label>
+</section>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HAssociation[0].HAName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HAssociation[0].HAAP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HAssociation[0].ApprPos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HAssociation[0].ReleaseDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.HAssociation) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HAName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HAAP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApprPos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.HAID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.HAID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.HAID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

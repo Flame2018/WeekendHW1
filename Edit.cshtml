@@ -1,0 +1,50 @@
+﻿@page
+@model WeekendHW.Pages.myAssociation.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>HAssociation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="HAssociation.HAID" />
+            <div class="form-group">
+                <label asp-for="HAssociation.HAName" class="control-label"></label>
+                <input asp-for="HAssociation.HAName" class="form-control" />
+                <span asp-validation-for="HAssociation.HAName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HAssociation.HAAP" class="control-label"></label>
+                <input asp-for="HAssociation.HAAP" class="form-control" />
+                <span asp-validation-for="HAssociation.HAAP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HAssociation.ApprPos" class="control-label"></label>
+                <input asp-for="HAssociation.ApprPos" class="form-control" />
+                <span asp-validation-for="HAssociation.ApprPos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HAssociation.ReleaseDate" class="control-label"></label>
+                <input asp-for="HAssociation.ReleaseDate" class="form-control" />
+                <span asp-validation-for="HAssociation.ReleaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
